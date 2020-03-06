@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Image, StyleSheet, View, Text } from 'react-native'
+import { Image, StyleSheet, View, Text, Alert } from 'react-native'
 import base64 from 'react-native-base64'
 import { useSelector, useDispatch } from 'react-redux'
 import { setEmail, setPassword, getRepos } from '../store/actions'
 import Button from '../components/Button'
 import Input from '../components/Input'
+import { validEmail } from '../utils/EmailValidation'
 
 const LoginScreen = (props) => {
 
@@ -15,11 +16,14 @@ const LoginScreen = (props) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        setAuthStr('Basic '.concat(base64.encode('janailson.oliveira@gmail.com' +':'+ 'jobjan@10')))
+        setAuthStr('Basic '.concat(base64.encode(email +':'+ userPassword)))
     }, [userPassword])
 
     handlerSendEmail = () => {
-        dispatch(setEmail(userEmail))
+        if(!validEmail(userEmail)){
+            return Alert.alert('Email inválido', 'Digite um email válido')
+        }
+        return dispatch(setEmail(userEmail))
     }
 
     handlerCleanEmail = () => {
