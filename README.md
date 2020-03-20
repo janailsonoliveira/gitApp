@@ -1,5 +1,5 @@
-# Desafio Creditas
-> Teste para Desenvolvedor React Native .
+# Desafio Girlene App
+> Desenvolvedor React Native .
 
 ## Desenvolvido com:
 
