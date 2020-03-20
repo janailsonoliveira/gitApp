@@ -1,4 +1,4 @@
-# Desafio Girlene App
+# Desafio Git App
 > Desenvolvedor React Native .
 
 ## Desenvolvido com:
